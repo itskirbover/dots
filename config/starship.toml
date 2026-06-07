@@ -1,0 +1,56 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$cmd_duration $directory$git_branch
+  $character"""
+
+palette = 'matugen'
+
+[directory]
+style = "bg:lavender fg:crust"
+home_symbol = " "
+read_only = "  "
+truncation_length = 2
+truncation_symbol = ".../"
+format = '[](bold fg:lavender)[󰉋 → $path]($style)[](bold fg:lavender)'
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[line_break]
+disabled = true
+
+[git_branch]
+style = "bg:lavender fg:crust"
+symbol = "󰘬"
+truncation_length = 12
+truncation_symbol = ""
+format = " 󰜥 [](bold fg:crust)[$symbol $branch(:$remote_branch)](fg:crust bg:lavender)[ ](bold fg:lavender)"
+
+[character]
+disabled = false
+success_symbol = '[ ](bold fg:green)'
+error_symbol = '[ ](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[cmd_duration]
+min_time = 0
+format = '[](bold fg:lavender)[󰪢 $duration](bold bg:lavender fg:crust)[](bold fg:lavender)'
+
+[palettes.matugen]
+# Accent Pill styling (Material You supports .default.)
+lavender = "#c2befd"
+crust     = "#272556" 
+
+# Prompt status signals (Material You error supports .default.)
+red      = "#fcb2a9"
+
+green = "#a6d189"
+yellow = "#e5c890"
